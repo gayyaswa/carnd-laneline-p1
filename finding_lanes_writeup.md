@@ -84,8 +84,9 @@ The pipeline used following image processing steps to identify the lanes on the 
     y = mx + c
 ```    
 
-   While playing back the yellow left and challenge video on few frames which had horizonal lane lines the drawn lines
-   went far off from the actual lanes. To correct these lines slope points for those frames were collected and using
+   In the yellow left and challenge video on few frames the lane lines were drawn far off from the actual from the actual
+   lanes. On such frames there were lines with steeper slope values due to certain marking adjacent to the lanes. To correct
+   these lines slope points for those frames were collected refer **collected_slope_output** and using
    them as inputs lower and upper slope threshold values **( 0.4 > m < 1.0  or -0.4 > m < -1.0 )** those points were
    removed from the average slope computation.
     
