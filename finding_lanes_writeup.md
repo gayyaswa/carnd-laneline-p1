@@ -77,21 +77,19 @@ The pipeline used following image processing steps to identify the lanes on the 
 **Linear Interpolation**
     In order to detect the left and right lanes slopes for each of these lanes hough line segments are calucated
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
-    them increase and decrease respectively. By computing the average slopes and intercept for these lanes the
+    them increase and decrease respectively. By computing the average slopes(m) and intercept(c) for these lanes the
     hough line segments for the current frame is interpolated using the equation
     
 ```
     y = mx + c
-    
-    m - slope
-    c - intercept
-```
+```    
+
    While playing back the yellow left and challenge video on few frames which had horizonal lane lines the drawn lines
    went far off from the actual lanes. To correct these lines slope points for those frames were collected and using
    them as inputs lower and upper slope threshold values **( 0.4 > m < 1.0  or -0.4 > m < -1.0 )** those points were
    removed from the average slope computation.
     
-** Refer solidYellowLeft.mp4, solidWhiteRight.mp4 **
+**Refer solidYellowLeft.mp4, solidWhiteRight.mp4**
 
 ### 2. Identify potential shortcomings with your current pipeline
 
