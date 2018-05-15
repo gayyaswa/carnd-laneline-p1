@@ -93,7 +93,8 @@ The pipeline used following image processing steps to identify the lanes on the 
 
 ### 2. Identify potential shortcomings with your current pipeline
 
-* With the existing implementation drawing of lane lines between certain frames isn't a smooth transition especially in **challenge video**
+* With the existing implementation drawing of lane lines between certain frames isn't a smooth transition especially in
+**challenge.mp4 video**
 
 * The curvier the road the harder is to tune the hough transform and to user linear interpolation to draw lanes
 on them
