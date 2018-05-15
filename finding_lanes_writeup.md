@@ -43,16 +43,19 @@ The pipeline used following image processing steps to identify the lanes on the 
     noisy image. To reduce the noise Gaussian smoothing is performed on the gray scale image with kernel size of 5.
     
 **Canny Edge detection**
-    The basic principle in finding an edge is to compute intensity gradients and identify edges satisfying the input
-    input higher and lower threshold parameters. In order to detect lane marking which are either yellow or white color
-    in given images higher gray scale values 50:150 are preferred. The detected image is processed further to extract
-    the desired lanes using hard coded polygon
+    The basic principle of finding an edge is to compute intensity gradients and identify edges satisfying the input
+    based input higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
+    and also the pixels intensities in between the higher and threshold provided it is connected to the higher threshold
+    pixed. In order to detect lane marking which are either yellow or white color in given images higher gray scale
+    values 50:150 are preferred. The detected image is processed further to extract the desired lanes using a hard
+    coded polygon
+
  ![image2] | ![image6] |
   --------- | ----------|
 ![image2] | ![image6] |
 **Hough Transformation**
-    It transforms the image into (rho, theta) parameter space and accumulates the number of lines passing thorough a
-    single pizel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
+    It transforms the image into (rho, theta) parameter space and accumulates the count for number of lines passing thorough
+    a single pixel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
     the road these number and min_line_length has to be small in this project. The detected line for the given input
     images are:
 | ![image7] | ![image8] |
@@ -62,7 +65,7 @@ The pipeline used following image processing steps to identify the lanes on the 
 
 **Linear Interpolation**
     In order to detect the left and right lanes slopes for each of these lanes hough line segments are calucated
-    individually. The computed slopes for right lane are positive and for left lanes they are negative as the height for
+    individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes and intercept for these lanes the
     hough line segments for the current frame is interpolated using the equation
             y = mx + c
@@ -83,9 +86,9 @@ The pipeline used following image processing steps to identify the lanes on the 
 [Challenge Video][./test_videos_output/challenge.mp4]
 * The curvier the road the harder is to tune the hough transform and to user linear interpolation to draw lanes
 on them
-* This solution highly depends heavily on the slope values collected from the input images and videos to reject
+* This solution depends heavily on the slope values collected from the input images and videos to reject
  some hough tranformed lines with steeper slopes or outliers and may not be a generalized solution 
-
+* Lane section of the image could be dynamically rather than using a hard coded polygon
 
 ### 3. Suggest possible improvements to your pipeline
 
