@@ -47,11 +47,11 @@ The pipeline used following image processing steps to identify the lanes on the 
     based input higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
     and also with intensities in between the given threshold provided it is connected to the higher threshold
     pixel. In order to detect lane marking which are either yellow or white color in given images higher gray scale
-    values 60:180 are preferred. The detected image is processed further to extract the desired lanes using a hard
+    values ** 60 : 180 ** are preferred. The detected image is processed further to extract the desired lanes using a hard
     coded polygon
-    '''
+```
     edgeimg = canny(blurredimg, 60, 180)
-    '''
+ ```
 
  ![image2] | ![image6]
   --------- | ----------
@@ -62,11 +62,12 @@ The pipeline used following image processing steps to identify the lanes on the 
     each pixel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
     the road these number and min_line_length has to be small in this project. These 2 parameters are modified to detect as much
     line sgements of lanes for the given input images
-    '''
+    ```
     lines = hough_lines(finalimg, 1, np.pi/180, 35, 5, 2, img_name)
-    '''
+    ```
+ 
  ![image7] | ![image8]
- --------- | ----------
+ --------- | ------------
  ![image9] | ![image10] 
 ![image11] | ![image12]
 
@@ -75,16 +76,17 @@ The pipeline used following image processing steps to identify the lanes on the 
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes and intercept for these lanes the
     hough line segments for the current frame is interpolated using the equation
-    '''
+    
+    ```
             y = mx + c
-    '''            
+    ```            
             
 [Solid White Video][./test_videos_output/solidWhiteRight.mp4]
 
 [Solid Yellow Left Video][./test_videos_output/solidYellowLeft.mp4]
     While playing back the yellow left and challenge video on few frames which had horizonal lane lines the drawn lines
     went far off from the actual lanes. To correct these lines slope points for those frames were collected and using
-    them as inputs lower and upper slope threshold values ( 0.4 > m < 1.0  or -0.4 > m < -1.0 ) those points were
+    them as inputs lower and upper slope threshold values **( 0.4 > m < 1.0  or -0.4 > m < -1.0 )** those points were
     removed from the average slope computation.
 [Collected Slope Points ][./test_videos_output/solidYellowLeft.mp4]
     
