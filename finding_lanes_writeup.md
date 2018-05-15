@@ -76,12 +76,12 @@ The pipeline used following image processing steps to identify the lanes on the 
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes and intercept for these lanes the
     hough line segments for the current frame is interpolated using the equation
-    
     ```
-            y = mx + c
+    y = mx + c
     ```            
-            
-[Solid White Video][./test_videos_output/solidWhiteRight.mp4]
+
+
+![](http://img.youtube.com/vi/VIDEO-ID/0.jpg)](./test_videos_output/solidWhiteRight.mp4)
 
 [Solid Yellow Left Video][./test_videos_output/solidYellowLeft.mp4]
     While playing back the yellow left and challenge video on few frames which had horizonal lane lines the drawn lines
