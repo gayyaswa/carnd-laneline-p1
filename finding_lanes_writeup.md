@@ -48,7 +48,7 @@ The pipeline used following image processing steps to identify the lanes on the 
     based input higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
     and also with intensities in between the given threshold provided it is connected to the higher threshold
     pixel. In order to detect lane marking which are either yellow or white color in given images higher gray scale
-    values ** 60 : 180 ** are preferred. The detected image is processed further to extract the desired lanes using a hard
+    values **60 : 180** are preferred. The detected image is processed further to extract the desired lanes using a hard
     coded polygon
     
 ```
@@ -60,7 +60,7 @@ The pipeline used following image processing steps to identify the lanes on the 
 ![image2] | ![image6] 
 
 **Hough Transformation**
-    It transforms the image into (rho, theta) parameter space and accumulates the count for number of lines passing thorough
+    Transforms the image into (rho, theta) parameter space and accumulates the count for number of lines passing thorough
     each pixel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
     the road these number and min_line_length has to be small in this project. These 2 parameters are modified to detect as much
     line sgements of lanes for the given input images
