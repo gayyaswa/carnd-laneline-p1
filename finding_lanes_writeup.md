@@ -40,35 +40,44 @@ The pipeline used following image processing steps to identify the lanes on the 
 
 **Gaussian Blurring**
     Canny edge relies on intensity gradient of the image to detect edges and it is prone to detect false edges in a 
-    noisy image. To reduce the noise Gaussian smoothing is performed on the gray scale image with kernel size of 5.
+    noisy image. To reduce the noise Gaussian smoothing is performed on the gray scale image with kernel size of 3.
     
 **Canny Edge detection**
     The basic principle of finding an edge is to compute intensity gradients and identify edges satisfying the input
     based input higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
-    and also the pixels intensities in between the higher and threshold provided it is connected to the higher threshold
-    pixed. In order to detect lane marking which are either yellow or white color in given images higher gray scale
-    values 50:150 are preferred. The detected image is processed further to extract the desired lanes using a hard
+    and also with intensities in between the given threshold provided it is connected to the higher threshold
+    pixel. In order to detect lane marking which are either yellow or white color in given images higher gray scale
+    values 60:180 are preferred. The detected image is processed further to extract the desired lanes using a hard
     coded polygon
+    '''
+    edgeimg = canny(blurredimg, 60, 180)
+    '''
 
- ![image2] | ![image6] |
-  --------- | ----------|
-![image2] | ![image6] |
+ ![image2] | ![image6]
+  --------- | ----------
+![image2] | ![image6] 
+
 **Hough Transformation**
     It transforms the image into (rho, theta) parameter space and accumulates the count for number of lines passing thorough
-    a single pixel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
-    the road these number and min_line_length has to be small in this project. The detected line for the given input
-    images are:
-| ![image7] | ![image8] |
-| --------- | ----------| 
-| ![image9] | ![image10] |
-| ![image11] | ![image12] |    
+    each pixel and returns the lines that exceeds the input min_number_of_votes. Also to find the smaller lines on
+    the road these number and min_line_length has to be small in this project. These 2 parameters are modified to detect as much
+    line sgements of lanes for the given input images
+    '''
+    lines = hough_lines(finalimg, 1, np.pi/180, 35, 5, 2, img_name)
+    '''
+ ![image7] | ![image8]
+ --------- | ----------
+ ![image9] | ![image10] 
+![image11] | ![image12]
 
 **Linear Interpolation**
     In order to detect the left and right lanes slopes for each of these lanes hough line segments are calucated
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes and intercept for these lanes the
     hough line segments for the current frame is interpolated using the equation
+    '''
             y = mx + c
+    '''            
             
 [Solid White Video][./test_videos_output/solidWhiteRight.mp4]
 
