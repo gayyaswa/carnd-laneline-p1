@@ -95,7 +95,6 @@ The pipeline used following image processing steps to identify the lanes on the 
 
 * With the existing implementation drawing of lane lines between certain frames isn't a smooth transition especially in
 **challenge.mp4 video**
-
 * The curvier the road the harder is to tune the hough transform and to user linear interpolation to draw lanes
 on them
 * This solution depends heavily on the slope values collected from the input images and videos to reject
