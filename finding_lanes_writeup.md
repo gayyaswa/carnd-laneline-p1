@@ -36,7 +36,7 @@ The pipeline used following image processing steps to identify the lanes on the 
 * Gaussian Blurring
 * Canny Edge Detection
 * Hough line transformation
-* Linear Interpolation
+* Linear Extrapolation
 * Filtering slope based on collected image data
 
 **Gaussian Blurring**
@@ -74,11 +74,11 @@ The pipeline used following image processing steps to identify the lanes on the 
  ![image9] | ![image10] 
 ![image11] | ![image12]
 
-**Linear Interpolation**
+**Linear Extrapolation**
     In order to detect the left and right lanes slopes for each of these lanes hough line segments are calucated
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes(m) and intercept(c) for these lanes the
-    hough line segments for the current frame is interpolated using the equation
+    hough line segments for the current frame is extrapolated using the equation
     
 ```
     y = mx + c
