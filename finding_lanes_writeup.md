@@ -66,7 +66,7 @@ The pipeline used following image processing steps to identify the lanes on the 
     line sgements of lanes for the given input images
     
 ```
-    lines = hough_lines(finalimg, 1, np.pi/180, 35, 5, 2, img_name)
+    lines = hough_lines(finalimg, 1, np.pi/180, 35, 3, 2, img_name)
 ```
  
  ![image7] | ![image8]
@@ -87,7 +87,7 @@ The pipeline used following image processing steps to identify the lanes on the 
    In the yellow left and challenge video on few frames the lane lines were drawn far off from the actual from the actual
    lanes. On such frames there were lines with steeper slope values due to certain marking adjacent to the lanes. To correct
    these lines slope points for those frames were collected refer **collected_slope_output/*.txt** and using
-   tthose values as inputs lower and upper slope threshold was defined **( 0.4 > m < 1.0  or -0.4 > m < -1.0 )** to remove
+   tthose values as inputs lower and upper slope threshold was defined **( 0.5 > m < 1.0  or -0.58 > m < -1.0 )** to remove
    such points with steeper slopes
     
 **Refer solidYellowLeft.mp4, solidWhiteRight.mp4**
