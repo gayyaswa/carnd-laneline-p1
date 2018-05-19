@@ -45,7 +45,7 @@ The pipeline used following image processing steps to identify the lanes on the 
     
 **Canny Edge detection**
     The basic principle of finding an edge is to compute intensity gradients and identify edges satisfying the input
-    based input higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
+    higher and lower threshold parameters. Pixels with intensities greater than higher threshold are picked
     and also with intensities in between the given threshold provided it is connected to the higher threshold
     pixel. In order to detect lane marking which are either yellow or white color in given images higher gray scale
     values **60 : 180** are preferred. The detected image is processed further to extract the desired lanes using a hard
@@ -75,7 +75,7 @@ The pipeline used following image processing steps to identify the lanes on the 
 ![image11] | ![image12]
 
 **Linear Extrapolation**
-    In order to detect the left and right lanes slopes for each of these lanes hough line segments are calucated
+    In order to detect the left and right lanes slopes for each of these lanes hough line segments are calculated
     individually. The computed slopes for right lane are positive and for left lanes are negative as the height for
     them increase and decrease respectively. By computing the average slopes(m) and intercept(c) for these lanes the
     hough line segments for the current frame is extrapolated using the equation
